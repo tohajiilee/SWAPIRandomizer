@@ -61,6 +61,18 @@ class App extends Component {
     }
   }
 
+
+  randomizerActivate = () => {
+    randomizer([this.state.peopleNum, this.state.speciesNum, this.state.filmsNum, this.state.planetsNum]).then((result) => {
+      this.setState({
+        person: result.person,
+        species: result.species,
+        film: result.film,
+        planet: result.planet
+      });
+    });
+  }
+
   componentDidMount(){
     getCount().then((result) => {
       this.setState({
@@ -69,16 +81,7 @@ class App extends Component {
         filmsNum: result.filmsNum,
         planetsNum: result.planetsNum
       });
-    }).then(() => {
-      randomizer([this.state.peopleNum, this.state.speciesNum, this.state.filmsNum, this.state.planetsNum]).then((result) => {
-        this.setState({ 
-          person: result.person,
-          species: result.species,
-          film: result.film,
-          planet: result.planet
-        });
-      })
-    });
+    }).then(() => { this.randomizerActivate() });
   }
 
   render() {
@@ -90,6 +93,7 @@ class App extends Component {
       (
         <div className="tc">
         <h1 className="f2">SWAPI Randomizer</h1>
+        <button onClick={this.randomizerActivate}>Generate</button>
         <h2>Your name is {person}. You are a {species} that hails from {planet}, and you made your debut appearance in {film}.</h2>
         <h5>using the Star Wars API, gleaning from a database of {peopleNum} characters, {speciesNum} species, {filmsNum} films, and {planetsNum} planets</h5>
         </div>
