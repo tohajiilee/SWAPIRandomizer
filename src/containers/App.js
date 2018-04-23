@@ -61,7 +61,6 @@ class App extends Component {
     }
   }
 
-
   randomizerActivate = () => {
     randomizer([this.state.peopleNum, this.state.speciesNum, this.state.filmsNum, this.state.planetsNum]).then((result) => {
       this.setState({
@@ -74,6 +73,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    try{
     getCount().then((result) => {
       this.setState({
         peopleNum: result.peopleNum,
@@ -82,20 +82,24 @@ class App extends Component {
         planetsNum: result.planetsNum
       });
     }).then(() => { this.randomizerActivate() });
+    }
+    catch (error) {
+      console.log("Error: ", error);
+    }
   }
 
   render() {
     const { peopleNum, speciesNum, filmsNum, planetsNum,
       person, species, film, planet } = this.state;
       return this.state.peopleNum === 0 ?
-      <h1>Loading...</h1>
+      <h1 className="tc">Loading...</h1>
       :
       (
         <div className="tc">
-        <h1 className="f2">SWAPI Randomizer</h1>
-        <button onClick={this.randomizerActivate}>Generate</button>
+        <h1 className="f1">Swapi Randomizer</h1>
+        <a class="f6 link dim br3 ba ph3 pv2 mb2 dib genbutton" href="#generate" onClick={this.randomizerActivate}>Generate Character</a>
         <h2>Your name is {person}. You are a {species} that hails from {planet}, and you made your debut appearance in {film}.</h2>
-        <h5>using the Star Wars API, gleaning from a database of {peopleNum} characters, {speciesNum} species, {filmsNum} films, and {planetsNum} planets</h5>
+        <h5>using the <a class="swapilink" href="https://swapi.co" target="_blank">Star Wars API</a>, gleaning from a database of {peopleNum} characters, {speciesNum} species, {filmsNum} films, and {planetsNum} planets</h5>
         </div>
         );
     }

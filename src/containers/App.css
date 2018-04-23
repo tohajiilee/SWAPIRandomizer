@@ -1,0 +1,44 @@
+html {
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #22212e 0%, #000000 100%);
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+@font-face {
+  font-family: 'Franklin Gothic Book Normal';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Franklin-Gothic-book-normal'), url('Franklin-Gothic-book-normal.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Star Jedi';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Starjhol'), url('Starjhol.ttf') format('truetype');
+}
+
+h1 {
+  font-family: 'Star Jedi';
+  font-weight: strong;
+  font-size: 150%;
+}
+
+h2 {
+  color: #ffc814;
+  font-family: 'Franklin Gothic Book Normal';
+  font-weight: strong;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.genbutton {
+  font-family: 'Franklin Gothic Book Normal';
+  color: #0fc8eb;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.swapilink {
+  text-decoration: none;
+  color: #ffc814;
+}
