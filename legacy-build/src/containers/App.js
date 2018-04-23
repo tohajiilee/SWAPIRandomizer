@@ -99,7 +99,7 @@ class App extends Component {
         <h1 className="f1">Swapi Randomizer</h1>
         <a class="f6 link dim br3 ba ph3 pv2 mb2 dib genbutton" href="#generate" onClick={this.randomizerActivate}>Generate Character</a>
         <h2>Your name is {person}. You are a {species} that hails from {planet}, and you made your debut appearance in {film}.</h2>
-        <h5>using the <a class="swapilink" href="https://swapi.co" target="_blank">Star Wars API</a>, gleaning from a database of {peopleNum} characters, {speciesNum} species, {filmsNum} films, and {planetsNum} planets</h5>
+        <h5>using the <a class="swapilink" href="https://swapi.co" target="_blank" rel="noopener noreferrer">Star Wars API</a>, gleaning from a database of {peopleNum} characters, {speciesNum} species, {filmsNum} films, and {planetsNum} planets</h5>
         </div>
         );
     }
